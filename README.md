@@ -7,7 +7,7 @@ A YAML formatted configuration file needs to either be specified with the -c arg
 This has only been tested on Linux systems running python 3.6, as it has been developed mainly as a way to backup content on web servers in a cron job.
 `python setup.py install` or `pip install .` should install Lambert on your system. Various other options can be supplied to these commands, please see their documentation for a full list.
 * [setup.py](https://docs.python.org/3.6/install/index.html)
-* [pip](https://pip.pypa.io/en/stable/installing/)
+* [pip](https://pip.pypa.io/en/stable/user_guide/#installing-packages)
 
 ## The config file
 Various options are set in the config file. They are:
@@ -22,17 +22,18 @@ Various options are set in the config file. They are:
     - gzip (fast, more compression)
     - bzip2 (slow, even more compression)
     - lzma (slowest, most compression)
+
 [Source for comparison](https://binfalse.de/2011/04/04/comparison-of-compression/)
 
 
 ## Usage
 There are two required command line argument, the backup directory and the Glacier vault. The three other optional arguments are:
-* -c / --config - allows you to specify a config file other than ~/.lambert/config
-* -r / --recursive - without this argument, only the chosen backup directory is archived and uploaded, with this argument its children are each archived and uploaded individually
-* -e / encrypt <valid GPG id> - this option will encrypt the archive if a valid public key for the GPG id (often an email address) is found on your system.
-* -t / --test - runs lambert in test mode. This performs all the checks before the backup process occurs and lists the directories that will be uploaded to Glacier in the log file.
-* -v / --verbose - the log generated with running Lambert will have a greater level of detail.
-* --hidden - hidden directories will also be archived. 
+* `-c` / `--config` - allows you to specify a config file other than ~/.lambert/config
+* `-r` / `--recursive` - without this argument, only the chosen backup directory is archived and uploaded, with this argument its children are each archived and uploaded individually
+* `-e` / `encrypt` <valid GPG id> - this option will encrypt the archive if a valid public key for the GPG id (often an email address) is found on your system.
+* `-t` / `--test` - runs lambert in test mode. This performs all the checks before the backup process occurs and lists the directories that will be uploaded to Glacier in the log file.
+* `-v` / `--verbose` - the log generated with running Lambert will have a greater level of detail.
+* `--hidden` - hidden directories will also be archived. 
 
 Example executions:
 
@@ -61,6 +62,7 @@ When Lambert runs it performs the following steps:
     - Creates a database entry with the directory name, archive id and location (from the Glacier response), size, and date
     - Deletes the archive from the temporary directory
     - Looks through the database and sends a delete request to Glacier for the old backups (the number of old backups to keep is set in the config file)
+
 And that's it!
 
 ## Why the name?
