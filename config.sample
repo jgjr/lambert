@@ -1,0 +1,7 @@
+profile: default
+temp_directory: ~/tmp/
+max_archive_size: 8388608
+db_file: ~/.lambert/lambert.sqlite
+log_file: ~/.lambert/lambert.log
+old_backups: 1
+compression_method: gzip
