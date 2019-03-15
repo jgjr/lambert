@@ -4,12 +4,11 @@ botocore==1.8.10
 docutils==0.14
 gnupg==2.3.1
 jmespath==0.9.3
--e git+https://github.com/jgjr/lambert@af184f37c25e702138ae53200b63d7d20a19f385#egg=Lambert
 pluggy==0.6.0
 psutil==5.4.3
 py==1.5.2
 pytest==3.3.1
 python-dateutil==2.6.1
-PyYAML==3.12
+PyYAML==5.1
 s3transfer==0.1.12
 six==1.11.0

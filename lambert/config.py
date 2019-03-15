@@ -47,7 +47,7 @@ class Config():
     def load_config_file(self):
         try:
             with open(self.file.path, 'r') as f:
-                config_yaml = yaml.load(f)
+                config_yaml = yaml.safe_load(f)
             self.profile = config_yaml['profile']
             self.temp_directory = Directory(config_yaml['temp_directory'], writable=True)
             self.max_archive_size = int(config_yaml['max_archive_size'])
